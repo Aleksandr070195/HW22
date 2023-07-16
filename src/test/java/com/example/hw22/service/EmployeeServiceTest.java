@@ -12,9 +12,9 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class EmployeeServiceTest {
-    EmployeeService employeeService = new EmployeeService();
+   static EmployeeService employeeService = new EmployeeService();
     @Test
-    void getAll(){
+    public void getAll(){
         Employee e1 = new Employee("Aleksandr", "Petrov", 1, 20000.0);
         Employee e2 = new Employee("Nikita", "Ivanov", 2, 30000.0);
         employeeService.add(e1);
@@ -26,7 +26,7 @@ public class EmployeeServiceTest {
     @Test
     void add(){
         int lastSize = employeeService.getAll().size();
-        Employee e1 = new Employee("Aleksandr", "Petrov", 1, 20000.0);
+        Employee e1 = new Employee("Aleksandr", "Petrov", 1, 30000.0);
         employeeService.add(e1);
         assertEquals(lastSize + 1, employeeService.getAll().size());
         assertTrue(employeeService.getAll().contains(e1));
@@ -41,7 +41,7 @@ public class EmployeeServiceTest {
     @Test
     void fullStorageException(){
         for (int i = 0; i < 5; i++) {
-            Employee e = new Employee("name " + i, "lastename " + i, 1, 100);
+            Employee e = new Employee("name " + i, "lastname " + i, 1, 100);
             assertDoesNotThrow(() -> employeeService.add(e));
         }
         assertThrows(EmployeeStorageIsFullException.class,
@@ -49,7 +49,7 @@ public class EmployeeServiceTest {
     }
     @Test
     void findPositive(){
-        Employee expected = (new Employee("Aleksandr", "Petrov", 1, 10000.0));
+        Employee expected = (new Employee("Aleksandr", "Petrov", 2, 20000.0));
         employeeService.add(expected);
         Employee actual = employeeService.find("Aleksandr", "Petrov");
         assertNotNull(actual);
@@ -57,9 +57,8 @@ public class EmployeeServiceTest {
     }
     @Test
     void findNegative(){
-        Employee expected = (new Employee("Aleksandr", "Petrov", 1, 10000.0));
+        Employee expected = (new Employee("Aleksandr", "Petrov", 5, 60000.0));
         employeeService.add(expected);
-        Employee actual = employeeService.find("Nikita", "Ivanov");
         assertThrows(EmployeeNotFoundException.class, ()-> employeeService.find("Nikita", "Ivanov"));
     }
     @Test

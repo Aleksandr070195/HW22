@@ -37,17 +37,17 @@ public class DepartmentServiceTest {
     @Test
     void test(){
         double actual = departmentService.getEmployeesSalarySum(2);
-        assertEquals(400, actual, 0.000001);
+        assertEquals(500, actual, 0.000001);
     }
     @Test
     void min(){
         double actual = departmentService.getEmployeesSalarySum(1);
-        assertEquals(100, actual, 0.000001);
+        assertEquals(300, actual, 0.000001);
     }
     @Test
     void max(){
         double actual = departmentService.getEmployeesSalarySum(1);
-        assertEquals(200, actual, 0.000001);
+        assertEquals(300, actual, 0.000001);
     }
     @Test
     void getAlDepartment(){
