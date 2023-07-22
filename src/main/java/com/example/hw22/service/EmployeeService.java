@@ -4,6 +4,7 @@ import com.example.hw22.Exception.EmployeeAlreadyAddedException;
 import com.example.hw22.Exception.EmployeeNotFoundException;
 import com.example.hw22.Exception.EmployeeStorageIsFullException;
 import com.example.hw22.model.Employee;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
@@ -43,7 +44,7 @@ public class EmployeeService {
         return employees.remove(creatKey(firstName, lastName).toLowerCase());
     }
 
-    public static String creatKey(Employee employee) {
+    public static @NotNull String creatKey(Employee employee) {
         return (employee.getFirstName() + employee.getLasteName());
     }
     private static String creatKey(String firstName, String lastName){

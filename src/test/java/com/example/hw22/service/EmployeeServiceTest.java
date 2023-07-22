@@ -12,7 +12,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class EmployeeServiceTest {
-   static EmployeeService employeeService = new EmployeeService();
+  EmployeeService employeeService = new EmployeeService();
     @Test
     public void getAll(){
         Employee e1 = new Employee("Aleksandr", "Petrov", 1, 20000.0);
