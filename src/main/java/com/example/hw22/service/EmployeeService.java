@@ -43,9 +43,8 @@ public class EmployeeService {
 
         return employees.remove(creatKey(firstName, lastName).toLowerCase());
     }
-
     public static @NotNull String creatKey(Employee employee) {
-        return (employee.getFirstName() + employee.getLasteName());
+        return creatKey(employee.getFirstName(), employee.getLasteName());
     }
     private static String creatKey(String firstName, String lastName){
         return (firstName + lastName).toLowerCase();

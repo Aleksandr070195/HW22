@@ -65,7 +65,6 @@ public class EmployeeServiceTest {
     void remove(){
         Employee e = new Employee("Aleksandr", "Petrov", 1, 10000.0);
         employeeService.add(e);
-
         assertTrue(employeeService.getAll().contains(e));
         employeeService.remove("Aleksandr", "Petrov");
         assertFalse(employeeService.getAll().contains(e));
